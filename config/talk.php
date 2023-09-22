@@ -27,7 +27,7 @@ return [
             ]
         ],
     ],
-
+    'uuid' => true,
 
     'oembed' => [
         'enabled' => false,

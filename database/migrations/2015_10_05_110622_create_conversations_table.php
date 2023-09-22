@@ -15,8 +15,12 @@ class CreateConversationsTable extends Migration
     {
         Schema::create('conversations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_one');
-            $table->integer('user_two');
+            $user_idColumnType = config('talk.uuid') ? 'string' : 'integer';
+            $table->{$user_idColumnType}('user_one');
+            // $table->integer('user_one');
+            $user_idColumnType = config('talk.uuid') ? 'string' : 'integer';
+            $table->{$user_idColumnType}('user_two');
+            // $table->integer('user_two');
             $table->boolean('status');
             $table->timestamps();
         });

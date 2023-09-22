@@ -19,7 +19,8 @@ class CreateMessagesTable extends Migration
             $table->boolean('is_seen')->default(0);
             $table->boolean('deleted_from_sender')->default(0);
             $table->boolean('deleted_from_receiver')->default(0);
-            $table->integer('user_id');
+            $user_idColumnType = config('talk.uuid') ? 'string' : 'integer';
+            $table->{$user_idColumnType}('user_id');
             $table->integer('conversation_id');
             $table->timestamps();
         });
